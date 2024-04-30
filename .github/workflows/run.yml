@@ -24,8 +24,8 @@ jobs:
       - name: Setup Go
         uses: actions/setup-go@v5
         with:
-          go-version: '1.22'
-          cache-dependency-path: ./community/go.sum
+          go-version-file: ./custom/go.mod
+          cache-dependency-path: ./custom/go.sum
 
       - name: Generate `sing-box` rule-set
         run: |

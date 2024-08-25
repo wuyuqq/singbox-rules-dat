@@ -24,7 +24,7 @@ jobs:
       - name: Setup Go
         uses: actions/setup-go@v5
         with:
-          go-version: '1.22'
+          go-version-file: ./custom/go.mod
           cache-dependency-path: ./custom/go.sum
 
       - name: Generate `sing-box` rule-set
@@ -46,9 +46,9 @@ jobs:
 
       - name: Download and unzip `sing-box core`
         run: |
-          sing_box_version=$(curl -sSL https://api.github.com/repos/SagerNet/sing-box/releases | grep 'tag_name' | grep 'rc' | head -n 1 | sed 's/.*v//' | sed 's/".*//')
+          sing_box_version=$(curl -sSL https://api.github.com/repos/SagerNet/sing-box/releases | grep 'tag_name' | grep 'alpha' | head -n 1 | sed -e 's/.*v//' -e 's/".*//')
           wget "https://github.com/SagerNet/sing-box/releases/download/v${sing_box_version}/sing-box-${sing_box_version}-linux-amd64v3.tar.gz" -O - | tar -zxf - -C ./tools/
-          cp -f ./tools/sing-box-${sing_box_version}-linux-amd64v3/sing-box ./tools/
+          mv -f ./tools/sing-box-${sing_box_version}-linux-amd64v3/sing-box ./tools/
 
       - name: Generate `sing-box` rule_set
         run: |

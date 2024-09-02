@@ -31,7 +31,7 @@ jobs:
         run: |
           mkdir -p ./sing-box-ruleset/
           archs1=(Apple Bing ChinaDomain GoogleCN GoogleFCM LocalAreaNetwork Microsoft OneDrive OpenAi ProxyGFWlist ProxyMedia Speedtest Spotify Telegram TikTok YouTube)
-          archs2=(Apple-ip ChinaCompanyIp ChinaDomain-ip GoogleFCM-ip LocalAreaNetwork-ip ProxyGFWlist-ip ProxyMedia-ip Telegram-ip)
+          archs2=(Apple-IP ChinaCompanyIp ChinaDomain-IP GoogleFCM-IP LocalAreaNetwork-IP ProxyGFWlist-IP ProxyMedia-IP Telegram-IP)
           archs3=(private_direct private_proxy Emby)
 
           # Ready for generate `sing-box` rule_set

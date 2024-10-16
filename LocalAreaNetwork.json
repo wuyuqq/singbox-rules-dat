@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "rules": [
+    {
+      "domain": [
+        "instant.arubanetworks.com",
+        "setmeup.arubanetworks.com",
+        "router.asus.com",
+        "www.asusrouter.com"
+      ],
+      "domain_suffix": [
+        "acl4.ssr",
+        "ip6-localhost",
+        "ip6-loopback",
+        "lan",
+        "local",
+        "localhost",
+        "hiwifi.com",
+        "leike.cc",
+        "miwifi.com",
+        "my.router",
+        "p.to",
+        "peiluyou.com",
+        "phicomm.me",
+        "router.ctc",
+        "routerlogin.com",
+        "tendawifi.com",
+        "zte.home",
+        "tplogin.cn",
+        "wifi.cmcc"
+      ]
+    }
+  ]
+}

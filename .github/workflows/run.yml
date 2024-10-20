@@ -1,4 +1,4 @@
-name: Build ruleset and geodata
+name: Build ruleset 和 geodata
 on:
   workflow_dispatch:
   schedule:
@@ -44,11 +44,10 @@ jobs:
             curl "https://raw.githubusercontent.com/wuyuqq/domain-list-custom/domains/${archs3[i]}.list" > "./tools/rules/${archs3[i]}/${archs3[i]}.yaml"
           done
 
-      - name: Download and unzip `sing-box core`
+      - name: Download 和 unzip `sing-box core`
         run: |
-          sing_box_version=$(curl -sSL https://api.github.com/repos/SagerNet/sing-box/releases | grep 'tag_name' | grep 'alpha' | head -n 1 | sed -e 's/.*v//' -e 's/".*//')
-          wget "https://github.com/SagerNet/sing-box/releases/download/v${sing_box_version}/sing-box-${sing_box_version}-linux-amd64v3.tar.gz" -O - | tar -zxf - -C ./tools/
-          mv -f ./tools/sing-box-${sing_box_version}-linux-amd64v3/sing-box ./tools/
+          wget "https://github.com/SagerNet/sing-box/releases/download/v1.10.1/sing-box-1.10.1-linux-amd64.tar.gz" -O - | tar -zxf - -C ./tools/
+          mv -f ./tools/sing-box-1.10.1-linux-amd64/sing-box ./tools/
 
       - name: Generate `sing-box` rule_set
         run: |
@@ -57,7 +56,7 @@ jobs:
           rm -rf ./sing-box* LICENSE ./rules*
           cp -f ./*.json ./*.srs ../sing-box-ruleset/
 
-      - name: Commit and push `sing-box-ruleset` branch
+      - name: Commit 和 push `sing-box-ruleset` branch
         run: |
           cd ./sing-box-ruleset/ || exit 1
           git init
